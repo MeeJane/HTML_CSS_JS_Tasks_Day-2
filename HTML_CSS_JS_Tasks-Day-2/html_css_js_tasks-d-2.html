@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML CSS JS Tasks Day-2</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        /* ---------- TASK 1 ---------- */
+        .board_t1 {
+            display: flex;
+            gap: 20px;
+        }
+
+        .column_t1 {
+            flex: 1;
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .task_t1 {
+            background: #fff;
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 4px;
+            cursor: grab;
+        }
+
+        /* Column Colors */
+        .column_t1[data-status="todo"] {
+            background: #ffe5e5;
+        }
+
+        .column_t1[data-status="progress"] {
+            background: #ffe6f2;
+        }
+
+        .column_t1[data-status="done"] {
+            background: #e6ffe6;
+        }
+
+        /* Task Colors */
+        .task_t1.todo {
+            background: #ff4d4d;
+            color: white;
+        }
+
+        .task_t1.progress {
+            background: #ff66b2;
+            color: white;
+        }
+
+        .task_t1.done {
+            background: #28a745;
+            color: white;
+        }
+
+        /* ---------- TASK 3 ---------- */
+        .cart-item_t3 {
+            display: flex;
+            gap: 10px;
+            margin: 5px 0;
+        }
+
+        /* ---------- TASK 4 ---------- */
+
+        .table-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box {
+            margin-bottom: 15px;
+        }
+
+        .search-box input {
+            padding: 8px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #2c3e50;
+            color: white;
+            cursor: pointer;
+            position: relative;
+        }
+
+        th:hover {
+            background: #34495e;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        .sort-icon {
+            position: absolute;
+            right: 10px;
+        }
+
+        /* ---------- TASK 5 ---------- */
+        /* ===== Layout ===== */
+        .container_t5 {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar_t5 {
+            width: 220px;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        .sidebar-item_t5 {
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .main_t5 {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .header_t5 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cards_t5 {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card_t5 {
+            flex: 1;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table_t5 {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table_t5 th,
+        .table_t5 td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* ===== THEMES ===== */
+        .theme-dark_t5 {
+            background: #1e1e1e;
+            color: #fff;
+        }
+
+        .theme-dark_t5 .sidebar_t5 {
+            background: #2c2c2c;
+        }
+
+        .theme-dark_t5 .card_t5 {
+            background: #333;
+        }
+
+        .theme-dark_t5 .table_t5 th,
+        .theme-dark_t5 .table_t5 td {
+            border-color: #555;
+        }
+
+        .theme-blue_t5 {
+            background: #e7f1ff;
+        }
+
+        .theme-blue_t5 .sidebar_t5 {
+            background: #0d6efd;
+            color: white;
+        }
+
+        .theme-blue_t5 .card_t5 {
+            background: white;
+        }
+
+        /* ---------- TASK 6 ---------- */
+
+        /* ===== Layout ===== */
+        .container_t6 {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar_t6 {
+            width: 220px;
+            background: #2c3e50;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .sidebar-title_t6 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-item_t6 {
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .sidebar-item_t6:hover {
+            background: #34495e;
+        }
+
+        .sidebar-item-active_t6 {
+            background: #1abc9c;
+        }
+
+        /* Main Content */
+        .main_t6 {
+            flex: 1;
+            padding: 30px;
+            background: #f4f6f8;
+        }
+
+        .content-title_t6 {
+            margin-bottom: 10px;
+        }
+
+        /* ---------- TASK 7 ---------- */
+        .comment-box_t7 {
+            margin: 10px 0;
+            padding: 8px;
+            background: #f5f5f5;
+            border-radius: 6px;
+        }
+
+        .comment_t7 {
+            margin-left: 20px;
+            margin-top: 5px;
+            border-left: 2px solid #ccc;
+            padding-left: 10px;
+        }
+
+
+        /* ---------- TASK 8 ---------- */
+        /* ===== Dropdown Container ===== */
+        .dropdown_t8 {
+            position: relative;
+            width: 250px;
+        }
+
+        /* Header */
+        .dropdown-header_t8 {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Arrow */
+        .dropdown-arrow_t8 {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-open_t8 .dropdown-arrow_t8 {
+            transform: rotate(180deg);
+        }
+
+        /* Options Container */
+        .dropdown-list_t8 {
+            position: absolute;
+            width: 100%;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 5px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            z-index: 100;
+        }
+
+        .dropdown-open_t8 .dropdown-list_t8 {
+            max-height: 200px;
+        }
+
+        /* Option */
+        .dropdown-item_t8 {
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .dropdown-item_t8:hover,
+        .dropdown-item-active_t8 {
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;color: rgb(234, 214, 38);">HTML CSS JS Tasks Day-2</h1>
+
+    <!-- ================================================== -->
+    <h2>1.Build a fully functional Kanban board (drag tasks between columns).</h2>
+
+    <div class="board_t1">
+        <div class="column_t1" data-status="todo" ondragover="event.preventDefault()" ondrop="drop_t1(event)">
+            <h4>Todo</h4>
+        </div>
+
+        <div class="column_t1" data-status="progress" ondragover="event.preventDefault()" ondrop="drop_t1(event)">
+            <h4>In Progress</h4>
+        </div>
+
+        <div class="column_t1" data-status="done" ondragover="event.preventDefault()" ondrop="drop_t1(event)">
+            <h4>Done</h4>
+        </div>
+    </div>
+
+    <input type="text" id="kanbanInput">
+    <button onclick="addKanban_t1()">Add Task</button>
+
+    <hr>
+
+    <!-- ================================================== -->
+    <h2>2.Create a dynamic form builder (user can add/remove input fields).</h2>
+
+    <div id="formBuilder"></div>
+    <button onclick="addField_t2()">Add Field</button>
+
+    <hr>
+
+    <!-- ================================================== -->
+    <h2>3.Build a shopping cart system with quantity update + total calculation.</h2>
+
+    <div id="cart"></div>
+    <h4>Total: ₹ <span id="total">0</span></h4>
+
+    <hr>
+
+    <!-- ================================================== -->
+    <h2>4.Create a sortable table (click column header to sort asc/desc).</h2>
+
+
+    <h2>Employee Table</h2>
+
+    <div class="table-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search employees...">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortTable('id')">ID <span class="sort-icon" id="id-icon"></span></th>
+                    <th onclick="sortTable('name')">Name <span class="sort-icon" id="name-icon"></span></th>
+                    <th onclick="sortTable('department')">Department <span class="sort-icon"
+                            id="department-icon"></span></th>
+                    <th onclick="sortTable('salary')">Salary <span class="sort-icon" id="salary-icon"></span></th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+
+    <!-- ================================================== -->
+    <h2 style="text-align:center;">
+        5.Build a multi-theme dashboard with saved theme (localStorage).
+    </h2>
+
+    <div style="text-align:center; margin-bottom:15px;">
+        <button onclick="setTheme_t5('')">Default</button>
+        <button onclick="setTheme_t5('theme-dark_t5')">Dark</button>
+        <button onclick="setTheme_t5('theme-blue_t5')">Blue</button>
+    </div>
+
+    <div class="container_t5">
+
+        <!-- Sidebar -->
+        <div class="sidebar_t5">
+            <h3>Dashboard</h3>
+            <div class="sidebar-item_t5">Overview</div>
+            <div class="sidebar-item_t5">Users</div>
+            <div class="sidebar-item_t5">Orders</div>
+            <div class="sidebar-item_t5">Reports</div>
+            <div class="sidebar-item_t5">Settings</div>
+        </div>
+
+        <!-- Main -->
+        <div class="main_t5">
+
+            <div class="header_t5">
+                <h2>Admin Panel</h2>
+                <div>Welcome, Admin</div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="cards_t5">
+                <div class="card_t5">
+                    <h3>Total Users</h3>
+                    <p>1,240</p>
+                </div>
+                <div class="card_t5">
+                    <h3>Total Sales</h3>
+                    <p>₹ 85,000</p>
+                </div>
+                <div class="card_t5">
+                    <h3>Orders</h3>
+                    <p>320</p>
+                </div>
+            </div>
+
+            <!-- Orders Table -->
+            <h3>Recent Orders</h3>
+            <table class="table_t5">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#101</td>
+                        <td>Arun</td>
+                        <td>₹ 1200</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>#102</td>
+                        <td>Meena</td>
+                        <td>₹ 2400</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <td>#103</td>
+                        <td>John</td>
+                        <td>₹ 1800</td>
+                        <td>Shipped</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- ================================================== -->
+    <h2 style="text-align:center;">
+        6.Create a dynamic sidebar menu from a JavaScript array.
+    </h2>
+
+    <div class="container_t6">
+
+        <!-- Sidebar -->
+        <div class="sidebar_t6" id="sidebarContainer_t6">
+            <div class="sidebar-title_t6">My Dashboard</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main_t6">
+            <h2 class="content-title_t6" id="contentTitle_t6">Welcome</h2>
+            <p id="contentBody_t6">
+                Select a menu item from the sidebar.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ================================================== -->
+    <h2>7.Build a comment system with nested replies.</h2>
+
+    <div id="comments"></div>
+    <input type="text" id="commentInput">
+    <button onclick="addComment_t7()">Add Comment</button>
+
+    <hr>
+
+    <!-- ================================================== -->
+    <h2>8.Create a custom dropdown component</h2>
+
+    <div class="dropdown_t8" id="dropdown_t8">
+        <div class="dropdown-header_t8" tabindex="0">
+            <span id="dropdownSelected_t8">Select Country</span>
+            <span class="dropdown-arrow_t8">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 4h18l-7 8v6l-4 2v-8L3 4z"></path>
+                </svg>
+            </span>
+        </div>
+
+        <div class="dropdown-list_t8" id="dropdownList_t8"></div>
+
+        <!-- Hidden input for form use -->
+        <input type="hidden" id="dropdownValue_t8" name="country">
+    </div>
+
+    <hr>
+
+    <script>
+
+        /* ================= TASK 1 ================= */
+        function addKanban_t1() {
+            const input_t1 = document.getElementById("kanbanInput");
+            const text_t1 = input_t1.value.trim();
+            if (!text_t1) return;
+
+            const taskDiv_t1 = document.createElement("div");
+            taskDiv_t1.className = "task_t1";
+            taskDiv_t1.draggable = true;
+            taskDiv_t1.innerText = text_t1;
+
+            taskDiv_t1.addEventListener("dragstart", function (e) {
+                e.dataTransfer.setData("text/plain", "");
+                window.draggedTask_t1 = taskDiv_t1;
+            });
+
+            document.querySelector(".column_t1").appendChild(taskDiv_t1);
+            input_t1.value = "";
+        }
+
+        function drop_t1(event_t1) {
+            event_t1.preventDefault();
+            if (window.draggedTask_t1) {
+                event_t1.currentTarget.appendChild(window.draggedTask_t1);
+            }
+        }
+
+
+        /* ================= TASK 2 ================= */
+        function addField_t2() {
+
+            const wrapper_t2 = document.createElement("div");
+
+            wrapper_t2.innerHTML = `
+        <input type="text" placeholder="Enter value">
+        <button type="button">Remove</button>
+    `;
+
+            const removeBtn_t2 = wrapper_t2.querySelector("button");
+
+            removeBtn_t2.addEventListener("click", function () {
+                wrapper_t2.remove();
+            });
+
+            document.getElementById("formBuilder").appendChild(wrapper_t2);
+        }
+
+
+        /* ================= TASK 3 ================= */
+        let products_t3 = [
+            { name: "Item A", price: 100 },
+            { name: "Item B", price: 200 }
+        ];
+
+        function renderCart_t3() {
+            let cartContainer_t3 = document.getElementById("cart");
+            cartContainer_t3.innerHTML = "";
+            let totalAmount_t3 = 0;
+
+            products_t3.forEach((product_t3, index_t3) => {
+                let qty_t3 = product_t3.qty || 1;
+                totalAmount_t3 += product_t3.price * qty_t3;
+
+                cartContainer_t3.innerHTML += `
+            <div class="cart-item_t3">
+                ${product_t3.name} ₹${product_t3.price}
+                <input type="number" min="1"
+                value="${qty_t3}"
+                onchange="updateQty_t3(${index_t3}, this.value)">
+            </div>
+        `;
+            });
+
+            document.getElementById("total").innerText = totalAmount_t3;
+        }
+
+        function updateQty_t3(index_t3, value_t3) {
+            products_t3[index_t3].qty = parseInt(value_t3);
+            renderCart_t3();
+        }
+
+        renderCart_t3();
+
+
+        /* ================= TASK 4 ================= */
+        const employees = [
+            { id: 101, name: "Arun", department: "HR", salary: 35000 },
+            { id: 102, name: "Divya", department: "IT", salary: 60000 },
+            { id: 103, name: "Karthik", department: "Finance", salary: 45000 },
+            { id: 104, name: "Meena", department: "IT", salary: 72000 },
+            { id: 105, name: "Vikram", department: "HR", salary: 39000 }
+        ];
+
+        let currentSort = { column: null, direction: "asc" };
+
+        function renderTable(data) {
+            const tbody = document.getElementById("tableBody");
+            tbody.innerHTML = "";
+
+            data.forEach(emp => {
+                tbody.innerHTML += `
+                <tr>
+                    <td>${emp.id}</td>
+                    <td>${emp.name}</td>
+                    <td>${emp.department}</td>
+                    <td>₹${emp.salary}</td>
+                </tr>
+            `;
+            });
+        }
+
+        function sortTable(column) {
+            const icon = document.getElementById(column + "-icon");
+
+            // Reset all icons
+            document.querySelectorAll(".sort-icon").forEach(i => i.textContent = "");
+
+            if (currentSort.column === column) {
+                currentSort.direction = currentSort.direction === "asc" ? "desc" : "asc";
+            } else {
+                currentSort.column = column;
+                currentSort.direction = "asc";
+            }
+
+            employees.sort((a, b) => {
+                let valueA = a[column];
+                let valueB = b[column];
+
+                if (typeof valueA === "string") {
+                    valueA = valueA.toLowerCase();
+                    valueB = valueB.toLowerCase();
+                }
+
+                if (valueA < valueB) return currentSort.direction === "asc" ? -1 : 1;
+                if (valueA > valueB) return currentSort.direction === "asc" ? 1 : -1;
+                return 0;
+            });
+
+            icon.textContent = currentSort.direction === "asc" ? "▲" : "▼";
+            renderTable(employees);
+        }
+
+        document.getElementById("searchInput").addEventListener("input", function () {
+            const value = this.value.toLowerCase();
+            const filtered = employees.filter(emp =>
+                emp.name.toLowerCase().includes(value) ||
+                emp.department.toLowerCase().includes(value)
+            );
+            renderTable(filtered);
+        });
+
+        renderTable(employees);
+
+
+        /* ================= TASK 5 ================= */
+
+        function setTheme_t5(themeClass_t5) {
+            document.body.className = themeClass_t5;
+            localStorage.setItem("dashboardTheme_t5", themeClass_t5);
+        }
+
+        window.addEventListener("load", () => {
+            const savedTheme_t5 = localStorage.getItem("dashboardTheme_t5");
+            if (savedTheme_t5) {
+                document.body.className = savedTheme_t5;
+            }
+        });
+
+
+
+        /* ================= TASK 6 ================= */
+        /* ================= TASK 6 ================= */
+
+        /* Dynamic Menu Data */
+        const menuData_t6 = [
+            { name: "Home", content: "This is the Home dashboard overview." },
+            { name: "Users", content: "Here you can manage all users." },
+            { name: "Orders", content: "View and manage customer orders here." },
+            { name: "Reports", content: "Analytics and reports are shown here." },
+            { name: "Settings", content: "Change application settings here." }
+        ];
+
+        const sidebarContainer_t6 = document.getElementById("sidebarContainer_t6");
+        const contentTitle_t6 = document.getElementById("contentTitle_t6");
+        const contentBody_t6 = document.getElementById("contentBody_t6");
+
+        /* Generate Sidebar Dynamically */
+        menuData_t6.forEach((item_t6, index_t6) => {
+
+            const menuItemDiv_t6 = document.createElement("div");
+            menuItemDiv_t6.className = "sidebar-item_t6";
+            menuItemDiv_t6.innerText = item_t6.name;
+
+            menuItemDiv_t6.addEventListener("click", () => {
+
+                /* Remove active class */
+                document.querySelectorAll(".sidebar-item_t6")
+                    .forEach(el_t6 => el_t6.classList.remove("sidebar-item-active_t6"));
+
+                /* Add active class */
+                menuItemDiv_t6.classList.add("sidebar-item-active_t6");
+
+                /* Update Main Content */
+                contentTitle_t6.innerText = item_t6.name;
+                contentBody_t6.innerText = item_t6.content;
+            });
+
+            sidebarContainer_t6.appendChild(menuItemDiv_t6);
+
+        });
+
+        /* Default active */
+        document.querySelector(".sidebar-item_t6").click();
+
+
+        /* ================= TASK 7 ================= */
+        /* ================= TASK 7 ================= */
+
+        function addComment_t7() {
+
+            const input_t7 = document.getElementById("commentInput");
+            const text_t7 = input_t7.value.trim();
+
+            if (!text_t7) return;
+
+            const commentDiv_t7 = createCommentElement_t7(text_t7);
+
+            document.getElementById("comments").appendChild(commentDiv_t7);
+
+            input_t7.value = "";
+        }
+
+        function createCommentElement_t7(text_t7) {
+
+            const commentWrapper_t7 = document.createElement("div");
+            commentWrapper_t7.className = "comment-box_t7";
+
+            const commentText_t7 = document.createElement("div");
+            commentText_t7.innerText = text_t7;
+
+            const replyBtn_t7 = document.createElement("button");
+            replyBtn_t7.innerText = "Reply";
+
+            const replyContainer_t7 = document.createElement("div");
+            replyContainer_t7.className = "comment_t7";
+
+            replyBtn_t7.addEventListener("click", function () {
+
+                const replyText_t7 = prompt("Enter reply");
+                if (!replyText_t7) return;
+
+                const replyElement_t7 = createCommentElement_t7(replyText_t7);
+
+                replyContainer_t7.appendChild(replyElement_t7);
+            });
+
+            commentWrapper_t7.appendChild(commentText_t7);
+            commentWrapper_t7.appendChild(replyBtn_t7);
+            commentWrapper_t7.appendChild(replyContainer_t7);
+
+            return commentWrapper_t7;
+        }
+
+
+        /* ================= TASK 8 ================= */
+        const dropdown_t8 = document.getElementById("dropdown_t8");
+        const dropdownHeader_t8 = dropdown_t8.querySelector(".dropdown-header_t8");
+        const dropdownList_t8 = document.getElementById("dropdownList_t8");
+        const dropdownSelected_t8 = document.getElementById("dropdownSelected_t8");
+        const dropdownValue_t8 = document.getElementById("dropdownValue_t8");
+
+        /* Dynamic Options */
+        const options_t8 = [
+            "India",
+            "USA",
+            "Canada",
+            "Germany",
+            "Australia"
+        ];
+
+        let activeIndex_t8 = -1;
+
+        /* Create options dynamically */
+        options_t8.forEach((option_t8, index_t8) => {
+            const item_t8 = document.createElement("div");
+            item_t8.className = "dropdown-item_t8";
+            item_t8.innerText = option_t8;
+
+            item_t8.addEventListener("click", () => {
+                selectOption_t8(option_t8, index_t8);
+                closeDropdown_t8();
+            });
+
+            dropdownList_t8.appendChild(item_t8);
+        });
+
+        /* Toggle */
+        dropdownHeader_t8.addEventListener("click", () => {
+            dropdown_t8.classList.toggle("dropdown-open_t8");
+        });
+
+        /* Select */
+        function selectOption_t8(value_t8, index_t8) {
+
+            dropdownSelected_t8.innerText = value_t8;
+            dropdownValue_t8.value = value_t8;
+            activeIndex_t8 = index_t8;
+
+            document.querySelectorAll(".dropdown-item_t8")
+                .forEach(el_t8 => el_t8.classList.remove("dropdown-item-active_t8"));
+
+            dropdownList_t8.children[index_t8]
+                .classList.add("dropdown-item-active_t8");
+        }
+
+        /* Close */
+        function closeDropdown_t8() {
+            dropdown_t8.classList.remove("dropdown-open_t8");
+        }
+
+        /* Click outside */
+        document.addEventListener("click", (e_t8) => {
+            if (!dropdown_t8.contains(e_t8.target)) {
+                closeDropdown_t8();
+            }
+        });
+
+        /* Keyboard Support */
+        dropdownHeader_t8.addEventListener("keydown", (e_t8) => {
+
+            const items_t8 = dropdownList_t8.children;
+
+            if (e_t8.key === "ArrowDown") {
+                activeIndex_t8 = (activeIndex_t8 + 1) % items_t8.length;
+                highlightOption_t8(items_t8);
+            }
+
+            if (e_t8.key === "ArrowUp") {
+                activeIndex_t8 =
+                    (activeIndex_t8 - 1 + items_t8.length) % items_t8.length;
+                highlightOption_t8(items_t8);
+            }
+
+            if (e_t8.key === "Enter") {
+                if (activeIndex_t8 >= 0) {
+                    selectOption_t8(
+                        options_t8[activeIndex_t8],
+                        activeIndex_t8
+                    );
+                    closeDropdown_t8();
+                }
+            }
+
+            if (e_t8.key === "Escape") {
+                closeDropdown_t8();
+            }
+        });
+
+        function highlightOption_t8(items_t8) {
+            document.querySelectorAll(".dropdown-item_t8")
+                .forEach(el_t8 => el_t8.classList.remove("dropdown-item-active_t8"));
+
+            items_t8[activeIndex_t8]
+                .classList.add("dropdown-item-active_t8");
+        }
+
+    </script>
+
+</body>
+
+</html>
