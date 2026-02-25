@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML CSS JS Tasks Day-2</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <h1 style="text-align: center;color: rgb(234, 214, 38);">HTML CSS JS Tasks Day-2</h1>
+
+    <!-- ================================================== -->
+    <h2>1.Build a fully functional Kanban board (drag tasks between columns).</h2>
+
+    <div class="board_t1">
+        <div class="column_t1" data-status="todo" ondragover="event.preventDefault()" ondrop="drop_t1(event)">
+            <h4>Todo</h4>
+        </div>
+
+        <div class="column_t1" data-status="progress" ondragover="event.preventDefault()" ondrop="drop_t1(event)">
+            <h4>In Progress</h4>
+        </div>
+
+        <div class="column_t1" data-status="done" ondragover="event.preventDefault()" ondrop="drop_t1(event)">
+            <h4>Done</h4>
+        </div>
+    </div>
+
+    <input type="text" id="kanbanInput">
+    <button onclick="addKanban_t1()">Add Task</button>
+
+    <hr>
+
+    <!-- ================================================== -->
+    <h2>2.Create a dynamic form builder (user can add/remove input fields).</h2>
+
+    <div id="formBuilder"></div>
+    <button onclick="addField_t2()">Add Field</button>
+
+    <hr>
+
+    <!-- ================================================== -->
+    <h2>3.Build a shopping cart system with quantity update + total calculation.</h2>
+
+    <div id="cart"></div>
+    <h4>Total: ₹ <span id="total">0</span></h4>
+
+    <hr>
+
+    <!-- ================================================== -->
+    <h2>4.Create a sortable table (click column header to sort asc/desc).</h2>
+
+
+    <h2>Employee Table</h2>
+
+    <div class="table-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search employees...">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortTable('id')">ID <span class="sort-icon" id="id-icon"></span></th>
+                    <th onclick="sortTable('name')">Name <span class="sort-icon" id="name-icon"></span></th>
+                    <th onclick="sortTable('department')">Department <span class="sort-icon"
+                            id="department-icon"></span></th>
+                    <th onclick="sortTable('salary')">Salary <span class="sort-icon" id="salary-icon"></span></th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+
+    <!-- ================================================== -->
+    <h2 style="text-align:center;">
+        5.Build a multi-theme dashboard with saved theme (localStorage).
+    </h2>
+
+    <div style="text-align:center; margin-bottom:15px;">
+        <button onclick="setTheme_t5('')">Default</button>
+        <button onclick="setTheme_t5('theme-dark_t5')">Dark</button>
+        <button onclick="setTheme_t5('theme-blue_t5')">Blue</button>
+    </div>
+
+    <div class="container_t5">
+
+        <!-- Sidebar -->
+        <div class="sidebar_t5">
+            <h3>Dashboard</h3>
+            <div class="sidebar-item_t5">Overview</div>
+            <div class="sidebar-item_t5">Users</div>
+            <div class="sidebar-item_t5">Orders</div>
+            <div class="sidebar-item_t5">Reports</div>
+            <div class="sidebar-item_t5">Settings</div>
+        </div>
+
+        <!-- Main -->
+        <div class="main_t5">
+
+            <div class="header_t5">
+                <h2>Admin Panel</h2>
+                <div>Welcome, Admin</div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="cards_t5">
+                <div class="card_t5">
+                    <h3>Total Users</h3>
+                    <p>1,240</p>
+                </div>
+                <div class="card_t5">
+                    <h3>Total Sales</h3>
+                    <p>₹ 85,000</p>
+                </div>
+                <div class="card_t5">
+                    <h3>Orders</h3>
+                    <p>320</p>
+                </div>
+            </div>
+
+            <!-- Orders Table -->
+            <h3>Recent Orders</h3>
+            <table class="table_t5">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#101</td>
+                        <td>Arun</td>
+                        <td>₹ 1200</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>#102</td>
+                        <td>Meena</td>
+                        <td>₹ 2400</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <td>#103</td>
+                        <td>John</td>
+                        <td>₹ 1800</td>
+                        <td>Shipped</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- ================================================== -->
+    <h2 style="text-align:center;">
+        6.Create a dynamic sidebar menu from a JavaScript array.
+    </h2>
+
+    <div class="container_t6">
+
+        <!-- Sidebar -->
+        <div class="sidebar_t6" id="sidebarContainer_t6">
+            <div class="sidebar-title_t6">My Dashboard</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main_t6">
+            <h2 class="content-title_t6" id="contentTitle_t6">Welcome</h2>
+            <p id="contentBody_t6">
+                Select a menu item from the sidebar.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ================================================== -->
+    <h2>7.Build a comment system with nested replies.</h2>
+
+    <div id="comments"></div>
+    <input type="text" id="commentInput">
+    <button onclick="addComment_t7()">Add Comment</button>
+
+    <hr>
+
+    <!-- ================================================== -->
+    <h2>8.Create a custom dropdown component</h2>
+
+    <div class="dropdown_t8" id="dropdown_t8">
+        <div class="dropdown-header_t8" tabindex="0">
+            <span id="dropdownSelected_t8">Select Country</span>
+            <span class="dropdown-arrow_t8">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 4h18l-7 8v6l-4 2v-8L3 4z"></path>
+                </svg>
+            </span>
+        </div>
+
+        <div class="dropdown-list_t8" id="dropdownList_t8"></div>
+
+        <!-- Hidden input for form use -->
+        <input type="hidden" id="dropdownValue_t8" name="country">
+    </div>
+
+    <hr>
+
+
+
+    <!-- ================= TASK 9 ================= -->
+    <section id="t9_section" class="t9_card">
+        <h3>9. Build a live markdown previewer.</h3>
+
+        <textarea id="t9_input" class="t9_input" placeholder="Type markdown..."></textarea>
+        <div id="t9_preview" class="t9_preview"></div>
+    </section>
+    <hr>
+
+
+    <!-- ================= TASK 10 ================= -->
+    <section id="t10_section" class="t10_card">
+        <h3>10. Create a dynamic breadcrumb generator based on navigation clicks.</h3>
+
+        <div id="t10_nav" class="t10_nav">
+            <button class="t10_btn" data-page="Home">Home</button>
+            <button class="t10_btn" data-page="Products">Products</button>
+            <button class="t10_btn" data-page="Details">Details</button>
+        </div>
+
+        <div id="t10_breadcrumb" class="t10_breadcrumb"></div>
+    </section>
+    <hr>
+
+
+    <!-- ================= TASK 11 ================= -->
+    <section id="t11_section" class="t11_card">
+        <h3>11. Build a notes app with localStorage + search + filter.</h3>
+
+        <input type="text" id="t11_search" class="t11_search" placeholder="Search notes...">
+        <textarea id="t11_input" class="t11_input" placeholder="Write note..."></textarea>
+        <button id="t11_addBtn" class="t11_btn">Add Note</button>
+
+        <div id="t11_notes" class="t11_notes"></div>
+    </section>
+    <hr>
+
+
+    <!-- ================= TASK 12 ================= -->
+    <section id="t12_section" class="t12_card">
+        <h3>12. Create a dynamic expense tracker with category-wise summary.</h3>
+
+        <input type="text" id="t12_desc" class="t12_input" placeholder="Description">
+        <input type="number" id="t12_amount" class="t12_input" placeholder="Amount">
+        <button id="t12_addBtn" class="t12_btn">Add Expense</button>
+
+        <div id="t12_list" class="t12_list"></div>
+        <h4>Total: ₹<span id="t12_total">0</span></h4>
+    </section>
+    <hr>
+
+
+    <!-- ================= TASK 13 ================= -->
+    <section id="t13_section" class="t13_card">
+        <h3>13. Build a student result calculator with grade system + pass/fail logic.</h3>
+
+        <input type="number" id="t13_m1" class="t13_input" placeholder="Mark 1">
+        <input type="number" id="t13_m2" class="t13_input" placeholder="Mark 2">
+        <input type="number" id="t13_m3" class="t13_input" placeholder="Mark 3">
+        <button id="t13_calcBtn" class="t13_btn">Calculate</button>
+
+        <div id="t13_result" class="t13_result"></div>
+    </section>
+    <hr>
+
+    <!-- ================= TASK 14 ================= -->
+    <section id="t14_section">
+        <h3>14. Create a contact manager (add/edit/delete/search contacts).</h3>
+
+        <input type="text" id="t14_name" placeholder="Name">
+        <input type="text" id="t14_phone" placeholder="Phone">
+        <button id="t14_addBtn">Add Contact</button>
+        <input type="text" id="t14_search" placeholder="Search contact">
+        <div id="t14_list"></div>
+    </section>
+    <hr>
+
+    <!-- ================= TASK 15 ================= -->
+    <section id="t15_section">
+        <h3>15. Build a product filter system (price range + category filter).</h3>
+
+        <h4>Available Items</h4>
+        <div id="t15_available"></div>
+
+        <hr>
+
+        <h4>Filter Products</h4>
+        <select id="t15_category">
+            <option value="all">All</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+        </select>
+
+        <input type="number" id="t15_price" placeholder="Enter Max Price">
+        <button id="t15_filterBtn">Filter</button>
+
+        <h4>Filtered Results</h4>
+        <div id="t15_list"></div>
+    </section>
+    <hr>
+
+    <!-- ================= TASK 16 ================= -->
+    <section id="t16_section">
+        <h3>16. Create a dynamic table with pagination + search combined.</h3>
+
+        <input type="text" id="t16_search" placeholder="Search...">
+        <table border="1" width="100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody id="t16_table"></tbody>
+        </table>
+        <button id="t16_prev">Prev</button>
+        <button id="t16_next">Next</button>
+    </section>
+    <hr>
+
+    <!-- ================= TASK 17 ================= -->
+    <section id="t17_section">
+        <h3>17. Build a password manager UI (store encrypted text locally).</h3>
+
+        <input type="text" id="t17_site" placeholder="Website">
+        <input type="password" id="t17_pass" placeholder="Password">
+        <button id="t17_addBtn">Save</button>
+        <div id="t17_list"></div>
+    </section>
+    <hr>
+
+    <!-- ================= TASK 18 ================= -->
+    <section id="t18_section">
+        <h3>18. Create a bookmark manager with persistent storage.</h3>
+
+        <input type="text" id="t18_title" placeholder="Title">
+        <input type="text" id="t18_url" placeholder="URL">
+        <button id="t18_addBtn">Add Bookmark</button>
+        <div id="t18_list"></div>
+    </section>
+    <hr>
+
+    <!-- ================= TASK 19 ================= -->
+    <section id="t19_section">
+        <h3>19. Build a cart system that saves data after page reload.</h3>
+
+        <button class="t19_add" data-item="Product A">Add Product A</button>
+        <button class="t19_add" data-item="Product B">Add Product B</button>
+        <div id="t19_cart"></div>
+    </section>
+    <hr>
+
+    <!-- ================= TASK 20 ================= -->
+    <section id="t20_section">
+        <section id="t20_section">
+            <h3>20. Create a Form Auto-Save Draft System</h3>
+
+            <form id="t20_form">
+                <input type="text" id="t20_name" placeholder="Enter Name"><br><br>
+
+                <input type="email" id="t20_email" placeholder="Enter Email"><br><br>
+
+                <textarea id="t20_message" placeholder="Enter Message"></textarea><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+
+            <p id="t20_status"></p>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 21 ================= -->
+        <section id="t21_section">
+            <h3>21. Build a custom image carousel with auto-slide + manual override.</h3>
+
+            <img id="t21_image" width="300">
+            <button id="t21_prev">Prev</button>
+            <button id="t21_next">Next</button>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 22 ================= -->
+        <section id="t22_section">
+            <h3>22. Create a scroll progress indicator at top of page.</h3>
+            <div id="t22_progress"></div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 23 ================= -->
+        <section class="t23_parallax t23_bg1">
+            <h2>Welcome to My Website</h2>
+        </section>
+
+        <section class="t23_content">
+            <h3>About Us</h3>
+            <p>This is a simple parallax scrolling landing page.</p>
+        </section>
+
+        <section class="t23_parallax t23_bg2">
+            <h2>Our Services</h2>
+        </section>
+
+        <section class="t23_content">
+            <h3>Contact</h3>
+            <p>Get in touch with us today.</p>
+        </section>
+
+        <hr>
+
+        <!-- ================= TASK 24 ================= -->
+        <section id="t24_section">
+            <h3>24. Dynamic Skill Progress Animation</h3>
+
+            <div class="t24_skill">
+                <p>HTML</p>
+                <div class="t24_progress">
+                    <div class="t24_bar" data-percent="90"></div>
+                </div>
+            </div>
+
+            <div class="t24_skill">
+                <p>CSS</p>
+                <div class="t24_progress">
+                    <div class="t24_bar" data-percent="80"></div>
+                </div>
+            </div>
+
+            <div class="t24_skill">
+                <p>JavaScript</p>
+                <div class="t24_progress">
+                    <div class="t24_bar" data-percent="75"></div>
+                </div>
+            </div>
+
+        </section>
+        <hr>
+
+        <!-- ================= TASK 25 ================= -->
+        <section id="t25_section">
+            <h3>25. Build a floating chat widget UI.</h3>
+            <button id="t25_toggle">Chat</button>
+            <div id="t25_box" style="display:none;">
+                <div id="t25_messages"></div>
+                <input type="text" id="t25_input">
+                <button id="t25_send">Send</button>
+            </div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 26 ================= -->
+        <section id="t26_section">
+            <h3>26. Create a typewriter animation with dynamic text array.</h3>
+            <h2>I am a <span id="t26_text"></span><span id="t26_cursor">|</span></h2>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 27 ================= -->
+        <section id="t27_section">
+            <h3>27. Build a modal system that supports multiple modals.</h3>
+            <button data-t27-modal="modal1">Open Modal 1</button>
+            <button data-t27-modal="modal2">Open Modal 2</button>
+
+            <div class="t27_modal" id="modal1">
+                <div class="t27_content">
+                    <span class="t27_close">&times;</span>
+                    <p>Modal 1 Content</p>
+                </div>
+            </div>
+
+            <div class="t27_modal" id="modal2">
+                <div class="t27_content">
+                    <span class="t27_close">&times;</span>
+                    <p>Modal 2 Content</p>
+                </div>
+            </div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 28 ================= -->
+        <section id="t28_section">
+            <h3>28. Create a tooltip system using pure JavaScript.</h3>
+            <button class="t28_tooltip" data-tooltip="Hello Tooltip!">Hover Me</button>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 29 ================= -->
+        <section id="t29_section">
+            <h3>29. Build a dynamic accordion with smooth height transition.</h3>
+            <div class="t29_item">
+                <div class="t29_header">Section 1</div>
+                <div class="t29_body">Content 1</div>
+            </div>
+            <div class="t29_item">
+                <div class="t29_header">Section 2</div>
+                <div class="t29_body">Content 2</div>
+            </div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 30 ================= -->
+        <section id="t30_section">
+            <h3>30. Create a page transition animation system.</h3>
+            <button id="t30_btn">Change Content</button>
+            <div id="t30_content">Page 1</div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 31 ================= -->
+        <section id="t31_section">
+            <h3>31. Build a mini weather UI (use dummy JSON data).</h3>
+            <div id="t31_card"></div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 32 ================= -->
+        <section id="t32_section">
+            <h3>32. Create a voting system with live result percentage bars.</h3>
+            <button class="t32_vote" data-option="A">Vote A</button>
+            <button class="t32_vote" data-option="B">Vote B</button>
+            <div id="t32_results"></div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 33 ================= -->
+        <!-- ================= TASK 33 ================= -->
+        <section id="t33_section">
+            <h3>33. Build a quiz app with timer + negative marking.</h3>
+
+            <div id="t33_timer"></div>
+            <div id="t33_question"></div>
+            <div id="t33_options"></div>
+            <button id="t33_next">Next</button>
+
+            <h4 id="t33_result"></h4>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 34 ================= -->
+        <section id="t34_section">
+            <h3>34. Create a seat booking UI (like movie booking).</h3>
+            <div id="t34_seats"></div>
+            <p>Total: ₹<span id="t34_total">0</span></p>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 35 ================= -->
+        <!-- ================= TASK 35 ================= -->
+        <section id="t35_section">
+            <h3>35. Build a calendar UI with selectable dates.</h3>
+
+            <div id="t35_calendar">
+                <div id="t35_header">
+                    <button id="t35_prev">Prev</button>
+                    <h4 id="t35_monthYear"></h4>
+                    <button id="t35_next">Next</button>
+                </div>
+
+                <div id="t35_days"></div>
+                <div id="t35_dates"></div>
+            </div>
+
+            <p id="t35_selectedDate"></p>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 36 ================= -->
+        <section id="t36_section">
+            <h3>36. Create a dynamic invoice generator with total + tax calculation.</h3>
+            <button id="t36_add">Add Item</button>
+            <div id="t36_items"></div>
+            <p>Total: ₹<span id="t36_total">0</span></p>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 37 ================= -->
+        <section id="t37_section">
+            <h3>37. Build a drag-and-drop file preview UI.</h3>
+            <div id="t37_drop">Drop Files Here</div>
+            <div id="t37_preview"></div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 38 ================= -->
+
+        <section id="t38_section">
+            <h3>38. Create a product comparison feature.</h3>
+
+            <select id="t38_productSelect">
+                <option value="">Select Product</option>
+            </select>
+            <button id="t38_addBtn">Add to Compare</button>
+
+            <div id="t38_compareContainer"></div>
+        </section>
+        <hr>
+        <!-- ================= TASK 39 ================= -->
+        <section id="t39_section">
+            <h3>39. Build a dynamic filter system using checkboxes + search.</h3>
+            <input type="text" id="t39_search" placeholder="Search...">
+            <div id="t39_filters"></div>
+            <div id="t39_results"></div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 40 ================= -->
+        <!-- ================= TASK 40 ================= -->
+        <section id="t40_section">
+            <h3>40. Create a step progress bar for multi-step form.</h3>
+
+            <div id="t40_progressBar">
+                <div class="t40_progress"></div>
+            </div>
+
+            <form id="t40_form">
+
+                <!-- Step 1 -->
+                <div class="t40_step">
+                    <h4>Step 1 - Personal Info</h4>
+                    <input type="text" id="t40_name" placeholder="Enter Name">
+                    <input type="email" id="t40_email" placeholder="Enter Email">
+                </div>
+
+                <!-- Step 2 -->
+                <div class="t40_step">
+                    <h4>Step 2 - Address</h4>
+                    <input type="text" id="t40_city" placeholder="City">
+                    <input type="text" id="t40_country" placeholder="Country">
+                </div>
+
+                <!-- Step 3 -->
+                <div class="t40_step">
+                    <h4>Step 3 - Confirmation</h4>
+                    <p>Review your details before submit.</p>
+                    <div id="t40_summary"></div>
+                </div>
+
+            </form>
+
+            <button id="t40_prev">Previous</button>
+            <button id="t40_next">Next</button>
+
+        </section>
+        <hr>
+
+        <!-- ================= TASK 41 ================= -->
+        <section id="t41_section">
+            <h3>41. Build a mini Trello-like task board with task edit + delete.</h3>
+            <input id="t41_input">
+            <button onclick="t41_addTask()">Add</button>
+            <div id="t41_board"></div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 42 ================= -->
+        <!-- ================= TASK 42 ================= -->
+        <section id="t42_section">
+            <h3>42. Create a responsive admin dashboard with collapsible sidebar.</h3>
+
+            <div id="t42_dashboard">
+
+                <!-- Sidebar -->
+                <div id="t42_sidebar">
+                    <button id="t42_toggle">☰</button>
+
+                    <div class="t42_menu">
+                        <div>🏠 <span class="t42_text">Dashboard</span></div>
+                        <div>👤 <span class="t42_text">Users</span></div>
+                        <div>📦 <span class="t42_text">Orders</span></div>
+                        <div>⚙ <span class="t42_text">Settings</span></div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div id="t42_main">
+                    <h2>Admin Content Area</h2>
+                </div>
+
+            </div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 43 ================= -->
+        <section id="t43_section">
+            <h3>43. Build a custom toast notification system.</h3>
+            <button onclick="t43_showToast()">Show Toast</button>
+            <div id="t43_toastContainer"></div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 44 ================= -->
+        <section id="t44_section">
+            <h3>44. Create a dynamic blog UI with category filter.</h3>
+            <select id="t44_category"></select>
+            <div id="t44_blog"></div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 45 ================= -->
+        <!-- ================= TASK 45 ================= -->
+        <section id="t45_section">
+            <h3>45. Build a dynamic pricing calculator (based on user selections).</h3>
+
+            <!-- Plan Selection -->
+            <h4>Select Plan</h4>
+            <select id="t45_plan">
+                <option value="1000">Basic - ₹1000/month</option>
+                <option value="2000">Pro - ₹2000/month</option>
+                <option value="4000">Enterprise - ₹4000/month</option>
+            </select>
+
+            <!-- Billing Type -->
+            <h4>Billing</h4>
+            <label><input type="radio" name="t45_billing" value="1" checked> Monthly</label>
+            <label><input type="radio" name="t45_billing" value="12"> Yearly (10% Discount)</label>
+
+            <!-- Users -->
+            <h4>Number of Users</h4>
+            <input type="number" id="t45_users" value="1" min="1">
+
+            <!-- Add-ons -->
+            <h4>Add-ons</h4>
+            <label><input type="checkbox" class="t45_addon" value="500"> Priority Support (₹500)</label><br>
+            <label><input type="checkbox" class="t45_addon" value="800"> Analytics (₹800)</label><br>
+
+            <hr>
+
+            <h4>Breakdown</h4>
+            <p>Subtotal: ₹<span id="t45_subtotal">0</span></p>
+            <p>Tax (18%): ₹<span id="t45_tax">0</span></p>
+            <h3>Total: ₹<span id="t45_total">0</span></h3>
+
+        </section>
+        <hr>
+
+        <!-- ================= TASK 46 ================= -->
+        <!-- ================= TASK 46 ================= -->
+        <section id="t46_section">
+            <h3>46. Create a leaderboard ranking system (sort by score).</h3>
+
+            <input type="text" id="t46_name" placeholder="Player Name">
+            <input type="number" id="t46_score" placeholder="Score">
+            <button id="t46_addBtn">Add Player</button>
+
+            <div id="t46_board"></div>
+
+        </section>
+        <hr>
+
+        <!-- ================= TASK 47 ================= -->
+        <section id="t47_section">
+            <h3>47. Build a dynamic tab system with URL hash support.</h3>
+            <div id="t47_tabs"></div>
+            <div id="t47_content"></div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 48 ================= -->
+        <section id="t48_section">
+            <h3>48. Create a poll system that stores votes in localStorage.</h3>
+            <button onclick="t48_vote('Yes')">Yes</button>
+            <button onclick="t48_vote('No')">No</button>
+            <div id="t48_result"></div>
+        </section>
+        <hr>
+
+        <!-- ================= TASK 49 ================= -->
+        <!-- ================= TASK 49 ================= -->
+        <section id="t49_section">
+            <h3>49. Build a mini chat UI (front-end only simulation).</h3>
+
+            <div id="t49_chatBox"></div>
+
+            <div id="t49_inputArea">
+                <input type="text" id="t49_input" placeholder="Type a message...">
+                <button id="t49_sendBtn">Send</button>
+            </div>
+
+        </section>
+        <hr>
+
+        <!-- ================= TASK 50 ================= -->
+        <!-- ================= TASK 50 ================= -->
+        <section id="t50_section">
+            <h3>50. Create a complete portfolio website with interactive sections.</h3>
+
+            <!-- Theme Toggle -->
+            <button id="t50_themeToggle">Toggle Theme</button>
+
+            <!-- Navigation -->
+            <nav>
+                <a href="#t50_about">About</a>
+                <a href="#t50_skills">Skills</a>
+                <a href="#t50_projects">Projects</a>
+                <a href="#t50_contact">Contact</a>
+            </nav>
+
+            <!-- Hero -->
+            <section id="t50_hero">
+                <h1>Hello 👋 I’m Developer</h1>
+                <p id="t50_typing"></p>
+            </section>
+
+            <!-- About -->
+            <section id="t50_about">
+                <h2>About Me</h2>
+                <p>Passionate developer building interactive web apps.</p>
+            </section>
+
+            <!-- Skills -->
+            <section id="t50_skills">
+                <h2>Skills</h2>
+
+                <div>
+                    HTML
+                    <div class="t50_skill">
+                        <div style="width:90%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    CSS
+                    <div class="t50_skill">
+                        <div style="width:80%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    JavaScript
+                    <div class="t50_skill">
+                        <div style="width:85%"></div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Projects -->
+            <section id="t50_projects">
+                <h2>Projects</h2>
+                <select id="t50_filter">
+                    <option value="all">All</option>
+                    <option value="web">Web</option>
+                    <option value="app">App</option>
+                </select>
+
+                <div id="t50_projectList"></div>
+            </section>
+
+            <!-- Contact -->
+            <section id="t50_contact">
+                <h2>Contact Me</h2>
+
+                <input type="text" id="t50_name" placeholder="Name">
+                <input type="email" id="t50_email" placeholder="Email">
+                <textarea id="t50_message" placeholder="Message"></textarea>
+                <button onclick="t50_submit()">Send</button>
+
+            </section>
+
+            <footer>
+                © 2025 My Portfolio
+            </footer>
+
+        </section>
+        <hr>
+
+        <script src="script.js"></script>
+
+</body>
+
+</html>
